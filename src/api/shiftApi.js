@@ -4,17 +4,18 @@ const DEFAULT_BASE_URL_IOS = 'http://127.0.0.1:8080';
 const DEFAULT_BASE_URL_ANDROID = 'http://10.0.2.2:8080';
 
 const getBaseUrl = () => {
-    const override = process.env.EXPO_PUBLIC_API_URL;
-    if (override && override.trim()) {
-        return override.replace(/\/$/, '');
-    }
-    
     // For Vercel production deployment
     if (Platform.OS === 'web' && typeof window !== 'undefined') {
-        if (process.env.NODE_ENV === 'production') {
+        const hostname = window.location.hostname;
+        if (hostname.includes('vercel.app') || process.env.NODE_ENV === 'production') {
             console.log("Using production API route: /api");
             return '/api';
         }
+    }
+
+    const override = process.env.EXPO_PUBLIC_API_URL;
+    if (override && override.trim()) {
+        return override.replace(/\/$/, '');
     }
     
     console.log("Using local API route:", Platform.OS === 'android' ? DEFAULT_BASE_URL_ANDROID : DEFAULT_BASE_URL_IOS);
