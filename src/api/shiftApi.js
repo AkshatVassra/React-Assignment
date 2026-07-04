@@ -11,10 +11,13 @@ const getBaseUrl = () => {
     
     // For Vercel production deployment
     if (Platform.OS === 'web' && typeof window !== 'undefined') {
-        if (process.env.NODE_ENV === 'production' || !__DEV__) {
+        if (process.env.NODE_ENV === 'production') {
+            console.log("Using production API route: /api");
             return '/api';
         }
     }
+    
+    console.log("Using local API route:", Platform.OS === 'android' ? DEFAULT_BASE_URL_ANDROID : DEFAULT_BASE_URL_IOS);
 
     return Platform.OS === 'android' ? DEFAULT_BASE_URL_ANDROID : DEFAULT_BASE_URL_IOS;
 };
