@@ -6,7 +6,7 @@
   "author": "Wolt",
   "license": "MIT",
   "scripts": {
-    "start": "expo start",
+    "start": "concurrently \"npm run api\" \"expo start\"",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.6",
-    "babel-preset-expo": "~11.0.0"
+    "babel-preset-expo": "~11.0.0",
+    "concurrently": "^10.0.3"
   }
 }
