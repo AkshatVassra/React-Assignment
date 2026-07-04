@@ -1,5 +1,5 @@
 const Hapi = require('@hapi/hapi');
-const { plugin: shiftsPlugin } = require('../mock-api/shifts-mock-api');
+const { plugin: shiftsPlugin } = require('./shifts-mock-api');
 const Joi = require('joi');
 
 let server;
