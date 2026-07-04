@@ -11,8 +11,7 @@ const getBaseUrl = () => {
     
     // For Vercel production deployment
     if (Platform.OS === 'web' && typeof window !== 'undefined') {
-        const origin = window.location.origin;
-        if (!origin.includes('localhost') && !origin.includes('127.0.0.1')) {
+        if (process.env.NODE_ENV === 'production' || !__DEV__) {
             return '/api';
         }
     }
