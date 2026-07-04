@@ -1,0 +1,18 @@
+{
+    "expo": {
+        "name": "Shift Booking",
+        "slug": "shift-booking",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "assetBundlePatterns": ["**/*"],
+        "splash": {
+            "backgroundColor": "#07111d"
+        },
+        "ios": {
+            "supportsTablet": true
+        },
+        "web": {
+            "bundler": "metro"
+        }
+    }
+}
