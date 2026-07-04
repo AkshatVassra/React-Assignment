@@ -8,6 +8,15 @@ const getBaseUrl = () => {
     if (override && override.trim()) {
         return override.replace(/\/$/, '');
     }
+    
+    // For Vercel production deployment
+    if (Platform.OS === 'web' && typeof window !== 'undefined') {
+        const origin = window.location.origin;
+        if (!origin.includes('localhost') && !origin.includes('127.0.0.1')) {
+            return '/api';
+        }
+    }
+
     return Platform.OS === 'android' ? DEFAULT_BASE_URL_ANDROID : DEFAULT_BASE_URL_IOS;
 };
 

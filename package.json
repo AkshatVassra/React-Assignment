@@ -10,8 +10,9 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "api": "node ./api/server.js",
-    "start:api": "node ./api/server.js"
+    "build": "npx expo export -p web",
+    "api": "node ./mock-api/server.js",
+    "start:api": "node ./mock-api/server.js"
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.3",
